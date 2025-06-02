@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <title>Oly-Transferencias</title>
+
+    <link rel="manifest" href="manifest.json" />
+    <link rel="stylesheet" href="/style.css" />
+    
+    <script type="module">
+      import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+      const el = document.createElement('pwa-update');
+      document.body.appendChild(el);
+    </script>
+    
+    <script>
+    if('serviceWorker' in navigator){
+        navigator.serviceWorker.register('pwabuilder-sw.js')
+          .then(reg => console.log('service worker registered'))
+          .catch(err => console.log('service worker not registered', err));
+      }
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/exceljs/4.3.0/exceljs.min.js" integrity="sha512-UnrKxsCMN9hFk7M56t4I4ckB4N/2HHi0w/7+B/1JsXIX3DmyBcsGpT3/BsuZMZf+6mAr0vP81syWtfynHJ69JA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  </head>
+  <body>
+    <div>
+      <h4>
+        Oly-Traspasos
+      </h4>
+      <div>
+        <button type="button" id="btnCargar" onclick="onCargar()">Cargar</button>
+        <button type="button" id="btnRegistrar" onclick="onRegistrar()">Registrar</button>
+        <button type="button" id="btnDescargar" onclick="onDescargar()">Descargar</button>
+        <button type="button" id="btnInfo" onclick="onInfo()">Info</button>
+      </div>
+      <div id="content">
+        
+        <div id="cargar" style="display:none;">
+          <hr>
+          <input id="excel" type="file" onchange="onExcelSelected()" />
+          
+          <div id="xlcargado" style="display:none"></div>
+        </div>
+        
+        <div id="registrar" style="display:none;">
+          <hr>
+          <label for="busqueda">B&uacute;squeda de art&iacute;culos</label><br>
+          <input type="text" id="busqueda" oninput="onBusqueda()" />
+          <button type="button" onclick="onBarcode()">BAR</button>
+          <div id="encontrados"></div>
+        </div>
+        
+        <div id="barcode" style="display:none;">
+          <hr>
+          <!--div id="barcode-reader"></div-->
+          <video id="bar" autoplay style="width:100vw;height:240px;margin:0;object-fit:cover;"></video>
+          <div id="red-line" style="position:relative; background-color:red; height:5px;z-index:10;"></div>
+          <hr>
+          <button type="button" onclick="cancelarBarcode()" style="height:30px; margin-right:30px;">Cerrar lector</button>
+          <button type="button" onclick="capturarBarcode()" style="height:30px;">Capturar</button>
+
+          <canvas id="canvas1" hidden></canvas>
+          <img id="input" hidden/>
+          
+        </div>
+        
+        <div id="articulo" style="display:none;">
+          <hr>
+          <div id="codigo" style="text-align: center;"></div><br>
+          <div id="descripcion" style="text-align: center;"></div><br>
+          <label style="font-size: small;" for="cantidad">Cantidad</label><br>
+          <input id="cantidad" type="number" style="width: 80px;" pattern="-?[0-9]*(\.[0-9]+)?" autocomplete="off" /><br>
+          <br><br>
+          <div style="display:flex; justify-content:center;">
+            <button type="button" id="Cancelar" onclick="onCancelar()" style="height: 40px;">Cancelar</button>
+            <span style="width: 25px; display: inline-block"></span>
+            <button type="button" id="Guardar" onclick="onGuardar()" style="height: 40px;">Guardar</button>            
+          </div>
+        </div>
+
+        <div id="descargar" style="display:none;">
+          <hr>
+          <button onclick="descargarExcel()">
+            Descargar Excel
+          </button>
+        </div>
+        
+        <div id="info" style="display:none;">
+          <hr>
+          Version: 2023.04.08
+          <br>
+          Contacto: dis7185@hotmail.com
+        </div>
+        
+      </div>      
+    </div>
+    
+  <script src="/script.js"></script>    
+  </body>
+</html>

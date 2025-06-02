@@ -1,0 +1,21 @@
+{
+  "background_color": "#ffffff",
+  "description": "Oly-Faltantes",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "Oly Conteo",
+  "orientation": "portrait",
+  "scope": "/",
+  "short_name": "Oly Conteo",
+  "start_url": "/",
+  "theme_color": "#ffffff",
+  "categories": [],
+  "screenshots": [],
+    "icons": [
+    {
+      "src": "https://cdn.glitch.global/932233de-7900-4973-a544-1d1fb545413e/OlyInven.png?v=1680049763657",
+      "sizes": "512x512"
+    }
+  ],
+  "shortcuts": []
+}
