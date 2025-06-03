@@ -271,6 +271,7 @@ function descargarExcel(filename="export.xlsx") {
   localStorage.removeItem("oly-lista")
 
   byId("msg-loaded").textContent="NO HAY ARCHIVO EN MEMORIA"
+  byId("xlcargado").hide()
 }
 
 /*
