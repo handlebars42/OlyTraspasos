@@ -264,7 +264,6 @@ function descargarExcel(filename="export.xlsx") {
     downloadBlob(blob, filename);
   })
   
-  byId("excel").value=null
   app.archivoEnMemoria = false
   app.datos = []
   app.lista = []
@@ -272,8 +271,10 @@ function descargarExcel(filename="export.xlsx") {
   localStorage.removeItem("oly-datos")
   localStorage.removeItem("oly-lista")
 
+  byId("excel").value=null
   byId("msg-loaded").textContent="NO HAY ARCHIVO EN MEMORIA"
   byId("xlcargado").hide()
+  byId("encontrados").innerHTML = ""
 }
 
 /*
