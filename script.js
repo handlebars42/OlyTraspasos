@@ -9,20 +9,25 @@
  */
 
 const app = {
-  xlcargado: undefined,
+  archivoEnMemoria: false,
   
   datos: [],
   lista: [],
 }
 
 window.onload = function() {
-  console.log("Iniciando app Oly-Traspasos");
+  console.log("Iniciando app OlyTraspasos");
   
   let datos = localStorage.getItem("oly-datos")
   if (datos) {
     app.datos = JSON.parse(datos);
     byId("xlcargado").show()
     byId("xlcargado").innerHTML = "<br>Ya hay datos cargados. Si elige otro archivo, se borrarán los datos anteriores";
+
+    app.archivoEnMemoria=true
+    byId("msg-loaded").textContent=""
+  } else {
+    byId("msg-loaded").textContent="NO HAY ARCHIVO EN MEMORIA"
   }
   
   let lista = localStorage.getItem("oly-lista")
@@ -82,6 +87,7 @@ async function onExcelSelected(event) {
   byId("xlcargado").innerHTML = "<br>El archivo Excel ha sido cargado. Puede continuar con el registro de productos para transferir";
   
   app.lista = []
+  app.archivoEnMemoria = true
   
   localStorage.setItem("oly-datos", JSON.stringify(app.datos))
   localStorage.setItem("oly-lista", JSON.stringify(app.lista))
@@ -226,8 +232,6 @@ function onGuardar() {
     codigo: byId("codigo").innerText,
     descripcion: byId("descripcion").innerText,
     cantidad: isNaN(parseInt(byId("cantidad").value)) ? 0 : parseInt(byId("cantidad").value),
-    
-    //cantidad: byId("cantidad").value,
   })
   
   app.lista.sort((a, b) => {
@@ -258,12 +262,15 @@ function descargarExcel(filename="export.xlsx") {
     downloadBlob(blob, filename);
   })
   
-  app.xlcargado = undefined
+  byId("excel").value=null
+  app.archivoEnMemoria = false
   app.datos = []
   app.lista = []
   
   localStorage.removeItem("oly-datos")
   localStorage.removeItem("oly-lista")
+
+  byId("msg-loaded").textContent="NO HAY ARCHIVO EN MEMORIA"
 }
 
 /*
