@@ -1,19 +1,19 @@
 {
   "background_color": "#ffffff",
-  "description": "Oly-Faltantes",
+  "description": "OlyTraspasos",
   "dir": "ltr",
   "display": "standalone",
-  "name": "Oly Conteo",
+  "name": "OlyTraspasos",
   "orientation": "portrait",
-  "scope": "/",
-  "short_name": "Oly Conteo",
-  "start_url": "/",
+  "scope": "/OlyTraspasos/",
+  "short_name": "OlyTraspasos",
+  "start_url": "/OlyTraspasos/",
   "theme_color": "#ffffff",
   "categories": [],
   "screenshots": [],
     "icons": [
     {
-      "src": "https://cdn.glitch.global/932233de-7900-4973-a544-1d1fb545413e/OlyInven.png?v=1680049763657",
+      "src": "OlyTraspasos.png",
       "sizes": "512x512"
     }
   ],
