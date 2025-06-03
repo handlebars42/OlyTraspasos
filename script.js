@@ -91,6 +91,8 @@ async function onExcelSelected(event) {
   
   localStorage.setItem("oly-datos", JSON.stringify(app.datos))
   localStorage.setItem("oly-lista", JSON.stringify(app.lista))
+
+  byId("msg-loaded").textContent = ""
 }
 
 function onBusqueda() {
