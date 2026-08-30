@@ -19,6 +19,10 @@ body {
   background-color: #E0DFE4;
 }
 
+.blue-bg {
+  background-color: #C6D7EA;
+}
+
 /* images and videos max out at full width */
 img,
 video {
