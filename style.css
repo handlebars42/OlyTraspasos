@@ -23,6 +23,12 @@ body {
   background-color: #C6D7EA;
 }
 
+.btn-big {
+  height: 75px;
+  width: 150px;
+  color: maroon;
+}
+
 /* images and videos max out at full width */
 img,
 video {
