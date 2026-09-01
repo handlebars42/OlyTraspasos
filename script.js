@@ -295,8 +295,7 @@ function capturarBarcode() {
         const barcodeInput = document.getElementById("busqueda");
         barcodeInput.value = barcode;
         barcodeInput.dispatchEvent(new Event("input"));
-        hide(document.getElementById("page-2"));
-        show(document.getElementById("page-1"));
+        mostrarPagina("registrar")
       })
       .catch(error => {
         console.error("Error detectando codigo:", error);
