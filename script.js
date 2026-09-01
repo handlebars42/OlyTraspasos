@@ -292,7 +292,7 @@ function capturarBarcode() {
         const barcode = result.rawValue || result.rawData;
         stopBarcodeCamera();
 
-        const barcodeInput = document.getElementById("barcode");
+        const barcodeInput = document.getElementById("busqueda");
         barcodeInput.value = barcode;
         barcodeInput.dispatchEvent(new Event("input"));
         hide(document.getElementById("page-2"));
