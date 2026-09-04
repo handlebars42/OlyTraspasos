@@ -107,6 +107,11 @@ function onBusqueda() {
                                      
   console.log(encontrados)
   
+  if (encontrados.length==1) {
+    onMostrarArticulo(encontrados[0].codigo)
+    return
+  }
+
   let html = "<br>"
   
   for (let i= 0; i < encontrados.length && i < 20; i++) {
@@ -314,11 +319,6 @@ function capturarBarcode() {
 function cancelarBarcode() {
   stopBarcodeCamera();
 
-  /*barcodeStat.stream.getTracks().forEach(track => track.stop());
-  
-  barcodeStat.stream = undefined
-  barcodeStat.intervalId = undefined
- */ 
   onRegistrar()
 }
 

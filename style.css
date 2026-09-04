@@ -24,13 +24,20 @@ body {
 .blue-bg {
   background-color: #C6D7EA;
 }
+*/
+
+.btn-grid {
+  display: grid;
+  grid-template-columns: repeat(2, auto); /* Creates two columns */
+  justify-content: center;                /* Centers the grid horizontally */
+  gap: 10px;                              /* Adds spacing between buttons */
+}
 
 .btn-big {
   height: 75px;
-  width: 150px;
-  color: maroon;
+  width: 150px; 
 }
-*/
+
 
 /* images and videos max out at full width */
 img,
